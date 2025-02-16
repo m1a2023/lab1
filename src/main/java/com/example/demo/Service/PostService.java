@@ -8,10 +8,13 @@ import java.util.List;
 
 @Service
 public class PostService {
-    private static List<Post> posts = new ArrayList<>();
+    private final List<Post> posts = new ArrayList<>();
 
     public List<Post> listAllPosts() {
-        return PostService.posts;
+        for (Post p : posts) {
+            System.out.println("post id: " + p.getId() + "\npost likes: " + p.getLikes());
+        }
+        return this.posts;
     }
 
     public void create(String text) {
