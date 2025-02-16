@@ -11,9 +11,6 @@ public class PostService {
     private final List<Post> posts = new ArrayList<>();
 
     public List<Post> listAllPosts() {
-        for (Post p : posts) {
-            System.out.println("post id: " + p.getId() + "\npost likes: " + p.getLikes());
-        }
         return this.posts;
     }
 
