@@ -1,17 +1,23 @@
 package com.example.demo.Model;
 
 import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
 public class Post {
-    private final Long id;
-    private final String text;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String text;
     private Integer likes;
-    private final Date creationDate;
+    private Date creationDate;
 
-    private static Long idAutoincrement = 0L;
+    public Post() { }
 
-    public Post( String text) {
-        this.id = idAutoincrement++;
+    public Post(String text) {
         this.text = text;
         this.likes = 0;
         this.creationDate = new Date();
